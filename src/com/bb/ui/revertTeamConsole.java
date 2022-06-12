@@ -13,8 +13,16 @@ public class revertTeamConsole implements teamConsole {
 	}
 	@Override
 	public void print() {
-
-		System.out.printf("%s의 남은 경기 수 : %d\t 승점 : %d", team.getName(), team.rest(), team.score());
+		try {
+			if(team.getName() == null) {
+				System.out.printf("남은 경기 수 : %d\t 승점 : %d", team.rest(), team.score());			
+			} else {
+				System.out.printf("%s의 남은 경기 수 : %d\t 승점 : %d", team.getName(), team.rest(), team.score());			
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
